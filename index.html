@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "weathermap" href = "api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}">
+    <link rel="stylesheet" href = "style.css">
+    <title>Weather or Not</title>
+</head>
+<body>
+    <header>
+        <h1>Weather or Not</h1>
+        <p>The best weather application for deciding "Weather or Not" for any trip or event.</p>
+    </header>
+    <aside>
+        <!--search bar for cities-->
+        <input type="text" class="search">
+        <button>Search</button>
+        <!-- and that city is added to the search history -->
+        <!-- WHEN I click on a city in the search history
+        THEN I am again presented with current and future conditions for that city -->
+        
+    </aside>
+    <main>
+        <!--presented with current and future conditions for that city -->
+        <!--presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index-->
+        <!--I view the UV index-->
+        <!--THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe, maybe green, red, and yellow-->
+    </main>
+    <section>
+        <!-- WHEN I view future weather conditions for that city
+        THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity -->
+    </section>
+    <!--uses openweather API to retrieve weather data-->
+    <!--uses localStorage to store presistant data-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
