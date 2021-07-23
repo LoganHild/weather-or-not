@@ -1,1 +1,12 @@
 /*add colors for UV index(favorable-green, moderate-yellow, severe-red)*/
+:root {
+    --display: flex;
+    --column: column;
+    --center: center;
+}
+header {
+    display: var(--display);
+    flex-direction: var(--column);
+    align-items: var(--center);
+}
+
