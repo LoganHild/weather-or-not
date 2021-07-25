@@ -9,4 +9,16 @@ header {
     flex-direction: var(--column);
     align-items: var(--center);
 }
-
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+section {
+    display: var(--display);
+    flex-direction: var(--column);
+}
+.iconSizing {
+    width: 50px;
+    height: 50px;
+}
