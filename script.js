@@ -32,7 +32,6 @@ searchBtn.on("click", function() {
                     return response.json();
                 })
                 .then(function(data) {
-                    console.log(data);
                     var weatherDesc = data.current.weather[0].main;
                     $('.weather').text('Weather: ' + weatherDesc);
                     var weatherIcon = data.current.weather[0].icon;
@@ -42,19 +41,32 @@ searchBtn.on("click", function() {
                     $('.temp').text('Temperature: ' + tempValue + '° F');
                     var humidityValue = data.current.humidity;
                     $('.humidity').text('Humidity: ' + humidityValue + "%");
-                    var uviValue = data.current.uvi;
-                    $('.uviIndex').text('UVI Index: ' + uviValue);
+                    var uvValue = data.current.uvi;
+                    $('.uvIndex').text('UV Index: ' + uvValue);
                     var windValue = data.current.wind_speed;
-                    $('.wind').text('Wind Speed: ' + windValue + "MPH");
+                    $('.wind').text('Wind Speed: ' + windValue + "mph");
                     var dateValue = data.current.dt;
                     var newDate = moment.unix(dateValue).format("MM/DD/YYYY");
                     $('.date').text(newDate);
 
+                    function uvColor() {
+                        uvIndex = $('.uvIndex');
+                        if (uvValue >=0 && uvValue < 3) {
+                            uvIndex.addClass('favorable');
+                        } else if (uvValue >= 3 && uvValue < 6) {
+                            uvIndex.addClass('moderate');
+                        } else if (uvValue >= 6 && uvValue < 8) {
+                            uvIndex.addClass('high');
+                        } else {
+                            uvIndex.addClass('severe');
+                        }
+                    }
+                    uvColor();
                 })
             }
             uviFetch();
         })
 })
 
-
+//uv index color
 
