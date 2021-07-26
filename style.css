@@ -8,6 +8,13 @@ header {
     flex-direction: var(--column);
     align-items: var(--center);
     background-color: #0077b6;
+    color: white;
+}
+h1 {
+    font-size: 60px;
+}
+#headerP {
+    font-size: 30px;
 }
 main {
     display: flex;
@@ -18,8 +25,8 @@ main {
     align-items: var(--center);
 }
 .iconSizing {
-    width: 50px;
-    height: 50px;
+    width: 80x;
+    height: 80px;
 }
 /* colors for uvIndex*/
 .favorable {
@@ -33,4 +40,12 @@ main {
 }
 .row {
     justify-content: center;
+}
+.card-body {
+    background-color: #90e0ef;
+}
+.name {
+    font-size: 25px;
+    color: white;
+    background-color: #0077b6;
 }

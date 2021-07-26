@@ -11,7 +11,7 @@
 <body>
     <header>
         <h1>Weather or Not</h1>
-        <p>The best weather application for deciding "Weather or Not" for any trip or event.</p>
+        <p id="headerP">The best weather application for deciding "Weather or Not" to plan any trip or event.</p>
     </header>
     
     <aside>
@@ -35,9 +35,9 @@
             <!--displays current conditions for searched city-->
             <div class="card border-dark mb-3 col-12" style="max-width: 18rem;">
                 <div class="name card-header"></div>
-                <div class="card-body text-dark">
-                  <h5 class="weather card-title"></h5>
-                  <img class="weatherIcon">
+                <div class="forecast card-body text-dark">
+                  <h3 class="weather card-title"></h3>
+                  <img class="weatherIcon iconSizing">
                   <p class="date card-text"></p>
                   <p class="temp card-text"></p>
                   <p class="humidity card-text"></p>
@@ -46,43 +46,50 @@
                 </div>
             </div>
         </section>
-    
+
         <section class ="row">
-            <!-- WHEN I view future weather conditions for that city
-            THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity -->
             <div class="card border-dark mb-3" style="max-width: 18rem;">
                 <div class="card-body text-dark">
-                <h5 class="card-title">Dark card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h3 id="dateOne" class="card-title"></h3>
+                <img id = "weatherIconOne" class="iconSizing">
+                <p id="tempOne" class="card-text"></p>
+                <p id="humidityOne" class="card-text"></p>
                 </div>
             </div>
             <div class="card border-dark mb-3" style="max-width: 18rem;">
                 <div class="card-body text-dark">
-                <h5 class="card-title">Dark card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h3 id="dateTwo" class="card-title"></h3>
+                <img id = "weatherIconTwo" class="iconSizing">
+                <p id="tempTwo" class="card-text"></p>
+                <p id="humidityTwo" class="card-text"></p>
                 </div>
             </div>
             <div class="card border-dark mb-3" style="max-width: 18rem;">
                 <div class="card-body text-dark">
-                <h5 class="card-title">Dark card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h3 id="dateThree" class="card-title"></h3>
+                <img id = "weatherIconThree" class="iconSizing">
+                <p id="tempThree" class="card-text"></p>
+                <p id="humidityThree" class="card-text"></p>
                 </div>
             </div>
             <div class="card border-dark mb-3" style="max-width: 18rem;">
                 <div class="card-body text-dark">
-                <h5 class="card-title">Dark card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h3 id="dateFour" class="card-title"></h3>
+                <img id = "weatherIconFour" class="iconSizing">
+                <p id="tempFour" class="card-text"></p>
+                <p id="humidityFour" class="card-text"></p>
                 </div>
             </div>
             <div class="card border-dark mb-3" style="max-width: 18rem;">
                 <div class="card-body text-dark">
-                <h5 class="card-title">Dark card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h3 id="dateFive" class="card-title"></h3>
+                <img id = "weatherIconFive" class="iconSizing">
+                <p id="tempFive" class="card-text"></p>
+                <p id="humidityFive" class="card-text"></p>
                 </div>
             </div>
         </section>
     </main>
-    <!--uses openweather API to retrieve weather data-->
     <!--uses localStorage to store presistant data-->
     <script
     type="text/javascript"
