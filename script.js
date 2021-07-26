@@ -15,7 +15,7 @@ function saveSearch(event) {
 searchBtn.on('click', saveSearch)
 
 //using the input value, gets data from weather API on search button click
-searchBtn.on("click", function() {
+function fetchWeather() {
     fetch('http://api.openweathermap.org/data/2.5/weather?q='+ inputValue.val() + '&units=imperial&id=524901&appid=0fe3cfd026afb76b1605f15581136ad8')
         .then(function(response) {
             return response.json();
@@ -53,12 +53,16 @@ searchBtn.on("click", function() {
                         uvIndex = $('.uvIndex');
                         if (uvValue >=0 && uvValue < 3) {
                             uvIndex.addClass('favorable');
+                            uvIndex.removeClass('severe');
+                            uvIndex.removeClass('moderate')
                         } else if (uvValue >= 3 && uvValue < 6) {
                             uvIndex.addClass('moderate');
-                        } else if (uvValue >= 6 && uvValue < 8) {
-                            uvIndex.addClass('high');
-                        } else {
+                            uvIndex.removeClass('severe');
+                            uvIndex.removeClass('favorable');
+                        } else if (uvValue >= 6) {
                             uvIndex.addClass('severe');
+                            uvIndex.removeClass('moderate');
+                            uvIndex.removeClass('favorable');
                         }
                     }
                     uvColor();
@@ -66,7 +70,22 @@ searchBtn.on("click", function() {
             }
             uviFetch();
         })
-})
+    fetch('http://api.openweathermap.org/data/2.5/forecast?q=' + inputValue.val() + '&units=imperial&id=524901&appid=0fe3cfd026afb76b1605f15581136ad8')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            //date, icon, temp, humidity
+            console.log(data);
+            var nameValue = data.city.name;
+            $('.forecastNameOne').text(nameValue);
+            var dateValue = data.list[1].dt;
+            //add rest of date
+            var weatherIcon = data.list[1].weather[0].icon;
+            //add rest of icon
+            var tempValue = data.list[1].main.temp;
+            var humidityValue = data.list[1].main.humidity;
 
-//uv index color
-
+        })
+}
+searchBtn.on("click", fetchWeather)

@@ -7,15 +7,15 @@ header {
     display: var(--display);
     flex-direction: var(--column);
     align-items: var(--center);
+    background-color: #0077b6;
 }
 main {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
-section {
+.currentWeather {
     display: var(--display);
     flex-direction: var(--column);
+    align-items: var(--center);
 }
 .iconSizing {
     width: 50px;
@@ -28,9 +28,9 @@ section {
 .moderate {
     background-color: yellow;
 }
-.high {
-    background-color: orange;
-}
 .severe {
     background-color: red;
+}
+.row {
+    justify-content: center;
 }

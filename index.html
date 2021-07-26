@@ -13,41 +13,75 @@
         <h1>Weather or Not</h1>
         <p>The best weather application for deciding "Weather or Not" for any trip or event.</p>
     </header>
-    <main>
-        <aside>
-            <!--search bar for cities-->
-            <h2>Search for a City:</h2>
-            <input type="text" class="search">
-            <button class="searchBtn">Search</button>
-            <!-- and that city is added to the search history -->
-            <!-- WHEN I click on a city in the search history
-            THEN I am again presented with current and future conditions for that city -->
-            <div>
-                <!--this is where the stored searches will go from localStorage-->
-                <ul class = "storedSearches">
+    
+    <aside>
+        <!--search bar for cities-->
+        <h2>Search for a City:</h2>
+        <input type="text" class="search">
+        <button class="searchBtn">Search</button>
+        <!-- and that city is added to the search history -->
+        <!-- WHEN I click on a city in the search history
+        THEN I am again presented with current and future conditions for that city -->
+        <div>
+            <!--this is where the stored searches will go from localStorage-->
+            <ul class = "storedSearches">
 
-                </ul>
-            </div>
-            
-        </aside>
-        <section>
+            </ul>
+        </div>
+        
+    </aside>
+    <main class = "row">
+        <section class = "currentWeather row-2 col-10">
             <!--displays current conditions for searched city-->
-            <h1 class="name"></h1>
-            <span class="weather"></span>
-            <img class="weatherIcon">
-            <span class="date"></span>
-            <span class="temp"></span>
-            <span class="humidity"></span>
-            <span class="wind"></span>
-            <span class="uvIndex"></span>
-            <!--I view the UV index-->
-            <!--THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe, maybe green, red, and yellow-->
+            <div class="card border-dark mb-3 col-12" style="max-width: 18rem;">
+                <div class="name card-header"></div>
+                <div class="card-body text-dark">
+                  <h5 class="weather card-title"></h5>
+                  <img class="weatherIcon">
+                  <p class="date card-text"></p>
+                  <p class="temp card-text"></p>
+                  <p class="humidity card-text"></p>
+                  <p class="wind card-text"></p>
+                  <p class="uvIndex card-text favorable moderate severe"></p>
+                </div>
+            </div>
+        </section>
+    
+        <section class ="row">
+            <!-- WHEN I view future weather conditions for that city
+            THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity -->
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-body text-dark">
+                <h5 class="card-title">Dark card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-body text-dark">
+                <h5 class="card-title">Dark card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-body text-dark">
+                <h5 class="card-title">Dark card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-body text-dark">
+                <h5 class="card-title">Dark card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-body text-dark">
+                <h5 class="card-title">Dark card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
         </section>
     </main>
-    <section>
-        <!-- WHEN I view future weather conditions for that city
-        THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity -->
-    </section>
     <!--uses openweather API to retrieve weather data-->
     <!--uses localStorage to store presistant data-->
     <script
