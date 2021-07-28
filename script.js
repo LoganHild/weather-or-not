@@ -1,33 +1,77 @@
-//add searches to localStorage for easy searching.
-//added underneath searchbar in <aside> to be clicked. Maybe do it how the last assignment was done with assigning it a data-value and using that to getItem
-//when stored searches are clicked, same process happens as if it was searched. 
 var inputValue = $('.search');
 var searchBtn = $('.searchBtn');
-var storedSearches = $('.storedSearches')
+var storedSearches = $('#storedSearches');
+var main = $('main');
 
-function saveSearch(event) {
-    event.preventDefault();
+var searches = [];
 
-    if (inputValue !== null) {
-        localStorage.setItem("search", inputValue.val());
+//renders the searches
+function renderSearches() {
+
+    storedSearches.html("");
+    for (var i = 0; i < searches.length; i++) {
+        var search = searches[i];
+
+        var button = $('<button>');
+        button.text(search);
+        button.attr('data-index', i);
+        button.attr('class', 'list-group-item list-group-item-action');
+
+        storedSearches.append(button);
+
+        button.on('click', function() {
+            inputValue.val(search);
+            fetchWeather();
+            inputValue.val("");
+    })
     }
 }
-searchBtn.on('click', saveSearch)
+//happens on page load/refresh
+function init() {
+    var stored = JSON.parse(localStorage.getItem('searches'));
+    if (stored !== null) {
+        searches = stored;
+    }
+    renderSearches();
+}
 
-//using the input value, gets data from weather API on search button click
+//saves searches
+function storeSearches() {
+
+    localStorage.setItem('searches', JSON.stringify(searches));
+}
+
+//adds text to array, calls fetchWeather, calls storing function and render function
+searchBtn.on('click', function(event) {
+    event.preventDefault();
+
+    var searchText = inputValue.val();
+
+    if (searchText === "") {
+        return;
+    }
+    searches.push(searchText);
+    fetchWeather();
+    
+    storeSearches();
+    renderSearches();
+})
+
+//uses the input value, gets data from weather API on search button click.
 function fetchWeather() {
     fetch('http://api.openweathermap.org/data/2.5/weather?q='+ inputValue.val() + '&units=imperial&id=524901&appid=0fe3cfd026afb76b1605f15581136ad8')
         .then(function(response) {
             return response.json();
         })
         .then(function(data) {
+            
             var nameValue = data.name;
             $('.name').text(nameValue);
             
             var latitude = data.coord.lat;
             var longitude = data.coord.lon;
 
-            //uses values from first API to fetch another
+            //uses values from first API to fetch another.
             function uviFetch() {
             fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude +'&lon=' + longitude + '&units=imperial&id=524901&appid=0fe3cfd026afb76b1605f15581136ad8')
                 .then(function(response) {
@@ -35,6 +79,7 @@ function fetchWeather() {
                 })
                 .then(function(data) {
                     //adds data to html
+                    console.log(data);
                     var weatherDesc = data.current.weather[0].main;
                     $('.weather').text('Weather: ' + weatherDesc);
                     var weatherIcon = data.current.weather[0].icon;
@@ -52,6 +97,61 @@ function fetchWeather() {
                     var newDate = moment.unix(dateValue).format('MM/DD/YYYY');
                     $('.date').text(newDate);
 
+                    //forecast tomorrow
+                    var dates = data.daily[1].dt;
+                    var forecastDates = moment.unix(dates).format('MM/DD/YYYY');
+                    $('#dateOne').text(forecastDates);
+                    var forecastWeatherIcon = data.daily[1].weather[0].icon;
+                    $('#weatherIconOne').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
+                    var forecastTemp = data.daily[1].temp.day;
+                    $('#tempOne').text('Temperature: ' + forecastTemp + '° F');
+                    var forecastHumidity = data.daily[1].humidity;
+                    $('#humidityOne').text('Humidity: ' + forecastHumidity);
+
+                    //forecast day 2
+                    var dates = data.daily[2].dt;
+                    var forecastDates = moment.unix(dates).format('MM/DD/YYYY');
+                    $('#dateTwo').text(forecastDates);
+                    var forecastWeatherIcon = data.daily[2].weather[0].icon;
+                    $('#weatherIconTwo').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
+                    var forecastTemp = data.daily[2].temp.day;
+                    $('#tempTwo').text('Temperature: ' + forecastTemp + '° F');
+                    var forecastHumidity = data.daily[2].humidity;
+                    $('#humidityTwo').text('Humidity: ' + forecastHumidity);
+
+                    //forecast day 3
+                    var dates = data.daily[3].dt;
+                    var forecastDates = moment.unix(dates).format('MM/DD/YYYY');
+                    $('#dateThree').text(forecastDates);
+                    var forecastWeatherIcon = data.daily[3].weather[0].icon;
+                    $('#weatherIconThree').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
+                    var forecastTemp = data.daily[3].temp.day;
+                    $('#tempThree').text('Temperature: ' + forecastTemp + '° F');
+                    var forecastHumidity = data.daily[3].humidity;
+                    $('#humidityThree').text('Humidity: ' + forecastHumidity);
+
+                    //forecast day 4
+                    var dates = data.daily[4].dt;
+                    var forecastDates = moment.unix(dates).format('MM/DD/YYYY');
+                    $('#dateFour').text(forecastDates);
+                    var forecastWeatherIcon = data.daily[4].weather[0].icon;
+                    $('#weatherIconFour').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
+                    var forecastTemp = data.daily[4].temp.day;
+                    $('#tempFour').text('Temperature: ' + forecastTemp + '° F');
+                    var forecastHumidity = data.daily[4].humidity;
+                    $('#humidityFour').text('Humidity: ' + forecastHumidity);
+
+                    //forecast day 5
+                    var dates = data.daily[5].dt;
+                    var forecastDates = moment.unix(dates).format('MM/DD/YYYY');
+                    $('#dateFive').text(forecastDates);
+                    var forecastWeatherIcon = data.daily[5].weather[0].icon;
+                    $('#weatherIconFive').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
+                    var forecastTemp = data.daily[5].temp.day;
+                    $('#tempFive').text('Temperature: ' + forecastTemp + '° F');
+                    var forecastHumidity = data.daily[5].humidity;
+                    $('#humidityFive').text('Humidity: ' + forecastHumidity);
+                    
                     //changes color of UVI
                     function uvColor() {
                         uvIndex = $('.uvIndex');
@@ -70,74 +170,12 @@ function fetchWeather() {
                         }
                     }
                     uvColor();
+                    inputValue.val("");
+                    main.removeClass('hidden');
                 })
             }
             uviFetch();
         })
-    
-    //fetches forecast for 5 days
-    fetch('http://api.openweathermap.org/data/2.5/forecast?q=' + inputValue.val() + '&units=imperial&id=524901&appid=0fe3cfd026afb76b1605f15581136ad8')
-        .then(function(response) {
-            return response.json();
-        })
-
-        //adds data to html
-        .then(function(data) {
-            //forecast, tomorrow
-            var startDate = moment();
-            dateOne = startDate.add(1, 'days');
-            dateOne = startDate.format('MM/DD/YYYY');
-            $('#dateOne').text(dateOne);
-            var weatherIcon = data.list[1].weather[0].icon;
-            $('#weatherIconOne').attr('src', 'http://openweathermap.org/img/wn/' + weatherIcon + '@2x.png');
-            var tempValue = data.list[1].main.temp;
-            $('#tempOne').text('Temperature: ' + tempValue);
-            var humidityValue = data.list[1].main.humidity;
-            $('#humidityOne').text('Humidity: ' + humidityValue);
-
-            //forecast, second day
-            dateTwo = startDate.add(1, 'days');
-            dateTwo = startDate.format('MM/DD/YYYY');
-            $('#dateTwo').text(dateTwo);
-            var weatherIcon = data.list[2].weather[0].icon;
-            $('#weatherIconTwo').attr('src', 'http://openweathermap.org/img/wn/' + weatherIcon + '@2x.png');
-            var tempValue = data.list[2].main.temp;
-            $('#tempTwo').text('Temperature: ' + tempValue);
-            var humidityValue = data.list[2].main.humidity;
-            $('#humidityTwo').text('Humidity: ' + humidityValue);
-
-            //forecast, third day
-            dateThree = startDate.add(1, 'days');
-            dateThree = startDate.format('MM/DD/YYYY');
-            $('#dateThree').text(dateThree);
-            var weatherIcon = data.list[3].weather[0].icon;
-            $('#weatherIconThree').attr('src', 'http://openweathermap.org/img/wn/' + weatherIcon + '@2x.png');
-            var tempValue = data.list[3].main.temp;
-            $('#tempThree').text('Temperature: ' + tempValue);
-            var humidityValue = data.list[3].main.humidity;
-            $('#humidityThree').text('Humidity: ' + humidityValue);
-
-            //forecast, fourth day
-            dateFour = startDate.add(1, 'days');
-            dateFour = startDate.format('MM/DD/YYYY');
-            $('#dateFour').text(dateFour);
-            var weatherIcon = data.list[4].weather[0].icon;
-            $('#weatherIconFour').attr('src', 'http://openweathermap.org/img/wn/' + weatherIcon + '@2x.png');
-            var tempValue = data.list[4].main.temp;
-            $('#tempFour').text('Temperature: ' + tempValue);
-            var humidityValue = data.list[4].main.humidity;
-            $('#humidityFour').text('Humidity: ' + humidityValue);
-
-            //forecast, fifth day
-            dateFive = startDate.add(1, 'days');
-            dateFive = startDate.format('MM/DD/YYYY');
-            $('#dateFive').text(dateFive);
-            var weatherIcon = data.list[5].weather[0].icon;
-            $('#weatherIconFive').attr('src', 'http://openweathermap.org/img/wn/' + weatherIcon + '@2x.png');
-            var tempValue = data.list[5].main.temp;
-            $('#tempFive').text('Temperature: ' + tempValue);
-            var humidityValue = data.list[5].main.humidity;
-            $('#humidityFive').text('Humidity: ' + humidityValue);
-        })
 }
 searchBtn.on("click", fetchWeather)
+init();

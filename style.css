@@ -17,7 +17,7 @@ h1 {
     font-size: 30px;
 }
 main {
-    display: flex;
+    display: var(--display);
 }
 .currentWeather {
     display: var(--display);
@@ -48,4 +48,10 @@ main {
     font-size: 25px;
     color: white;
     background-color: #0077b6;
+}
+.search {
+    height: 20px;
+}
+.hidden {
+    visibility: hidden;
 }
