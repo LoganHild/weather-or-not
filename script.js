@@ -20,12 +20,14 @@ function renderSearches() {
         storedSearches.append(button);
 
         button.on('click', function() {
-            inputValue.val(search);
+            inputValue.val(searches);
+            var citySearch = $(this).text()
+            inputValue.val(citySearch);
             fetchWeather();
-            inputValue.val("");
-    })
+        })
     }
 }
+
 //happens on page load/refresh
 function init() {
     var stored = JSON.parse(localStorage.getItem('searches'));
@@ -37,7 +39,6 @@ function init() {
 
 //saves searches
 function storeSearches() {
-
     localStorage.setItem('searches', JSON.stringify(searches));
 }
 
@@ -46,13 +47,12 @@ searchBtn.on('click', function(event) {
     event.preventDefault();
 
     var searchText = inputValue.val();
-
     if (searchText === "") {
         return;
     }
     searches.push(searchText);
+
     fetchWeather();
-    
     storeSearches();
     renderSearches();
 })
@@ -67,7 +67,6 @@ function fetchWeather() {
             
             var nameValue = data.name;
             $('.name').text(nameValue);
-            
             var latitude = data.coord.lat;
             var longitude = data.coord.lon;
 
