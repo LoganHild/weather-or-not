@@ -21,3 +21,7 @@ An easy to use weather application for the user to search a city name and see th
 * Each card represents one of the next 5 days.
 * Each card displays the date, an icon representation of the forecasted weather, the forecasted temperature, and the forecasted humidity.
 * If one of the previous searches is clicked, the cards will be updated for the selected search.
+
+#Link to deployed page
+https://loganhild.github.io/weather-or-not/
+
