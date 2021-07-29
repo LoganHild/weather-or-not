@@ -3,7 +3,7 @@ The Best Weather application for any user to decide "Weather or Not" to plan any
 
 ## Description
 
-An easy to use weather application for the user to search a city name and see the current weather as well as the forecast for the next five days.
+An easy to use weather application for the user to search a city name and see the current weather, as well as the forecast for the next five days.
 
 ## Usage
 
