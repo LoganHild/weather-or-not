@@ -25,3 +25,4 @@ An easy to use weather application for the user to search a city name and see th
 #Link to deployed page
 https://loganhild.github.io/weather-or-not/
 
+![Screenshot (53)](https://user-images.githubusercontent.com/82903685/127425501-7978dbeb-b952-4dab-a6e0-de0e99938f14.png)
