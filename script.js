@@ -85,7 +85,7 @@ function fetchWeather() {
                     $('.weatherIcon').attr('src', 'http://openweathermap.org/img/wn/' + weatherIcon + '@2x.png');
                     $('.weatherIcon').attr('alt', 'Weather Icon');
                     var tempValue = data.current.temp;
-                    $('.temp').text('Temperature: ' + tempValue + '° F');
+                    $('.temp').text('Temperature: ' + Math.round(tempValue) + '° F');
                     var humidityValue = data.current.humidity;
                     $('.humidity').text('Humidity: ' + humidityValue + '%');
                     var uvValue = data.current.uvi;
@@ -103,9 +103,9 @@ function fetchWeather() {
                     var forecastWeatherIcon = data.daily[1].weather[0].icon;
                     $('#weatherIconOne').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
                     var forecastTemp = data.daily[1].temp.day;
-                    $('#tempOne').text('Temperature: ' + forecastTemp + '° F');
+                    $('#tempOne').text('Temperature: ' + Math.round(forecastTemp) + '° F');
                     var forecastHumidity = data.daily[1].humidity;
-                    $('#humidityOne').text('Humidity: ' + forecastHumidity);
+                    $('#humidityOne').text('Humidity: ' + forecastHumidity + '%');
 
                     //forecast day 2
                     var dates = data.daily[2].dt;
@@ -114,9 +114,9 @@ function fetchWeather() {
                     var forecastWeatherIcon = data.daily[2].weather[0].icon;
                     $('#weatherIconTwo').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
                     var forecastTemp = data.daily[2].temp.day;
-                    $('#tempTwo').text('Temperature: ' + forecastTemp + '° F');
+                    $('#tempTwo').text('Temperature: ' + Math.round(forecastTemp) + '° F');
                     var forecastHumidity = data.daily[2].humidity;
-                    $('#humidityTwo').text('Humidity: ' + forecastHumidity);
+                    $('#humidityTwo').text('Humidity: ' + forecastHumidity + '%');
 
                     //forecast day 3
                     var dates = data.daily[3].dt;
@@ -125,9 +125,9 @@ function fetchWeather() {
                     var forecastWeatherIcon = data.daily[3].weather[0].icon;
                     $('#weatherIconThree').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
                     var forecastTemp = data.daily[3].temp.day;
-                    $('#tempThree').text('Temperature: ' + forecastTemp + '° F');
+                    $('#tempThree').text('Temperature: ' + Math.round(forecastTemp) + '° F');
                     var forecastHumidity = data.daily[3].humidity;
-                    $('#humidityThree').text('Humidity: ' + forecastHumidity);
+                    $('#humidityThree').text('Humidity: ' + forecastHumidity + '%');
 
                     //forecast day 4
                     var dates = data.daily[4].dt;
@@ -136,9 +136,9 @@ function fetchWeather() {
                     var forecastWeatherIcon = data.daily[4].weather[0].icon;
                     $('#weatherIconFour').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
                     var forecastTemp = data.daily[4].temp.day;
-                    $('#tempFour').text('Temperature: ' + forecastTemp + '° F');
+                    $('#tempFour').text('Temperature: ' + Math.round(forecastTemp) + '° F');
                     var forecastHumidity = data.daily[4].humidity;
-                    $('#humidityFour').text('Humidity: ' + forecastHumidity);
+                    $('#humidityFour').text('Humidity: ' + forecastHumidity + '%');
 
                     //forecast day 5
                     var dates = data.daily[5].dt;
@@ -147,9 +147,9 @@ function fetchWeather() {
                     var forecastWeatherIcon = data.daily[5].weather[0].icon;
                     $('#weatherIconFive').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
                     var forecastTemp = data.daily[5].temp.day;
-                    $('#tempFive').text('Temperature: ' + forecastTemp + '° F');
+                    $('#tempFive').text('Temperature: ' + Math.round(forecastTemp) + '° F');
                     var forecastHumidity = data.daily[5].humidity;
-                    $('#humidityFive').text('Humidity: ' + forecastHumidity);
+                    $('#humidityFive').text('Humidity: ' + forecastHumidity + '%');
                     
                     //changes color of UVI
                     function uvColor() {
