@@ -82,7 +82,7 @@ function fetchWeather() {
                     var weatherDesc = data.current.weather[0].main;
                     $('.weather').text('Weather: ' + weatherDesc);
                     var dateValue = data.current.dt;
-                    var newDate = moment.unix(dateValue).format('MM/DD/YYYY');
+                    var newDate = new Date(dateValue*1000).toLocaleDateString('en-US');
                     $('.name').append(' (' + newDate + ')');
                     var weatherIcon = data.current.weather[0].icon;
                     $('.name').append('<img class="weatherIcon iconSizing">');
@@ -99,7 +99,7 @@ function fetchWeather() {
 
                     //forecast tomorrow
                     var dates = data.daily[1].dt;
-                    var forecastDates = moment.unix(dates).format('MM/DD/YYYY');
+                    var forecastDates = new Date(dates*1000).toLocaleDateString('en-US');
                     $('#dateOne').text(forecastDates);
                     var forecastWeatherIcon = data.daily[1].weather[0].icon;
                     $('#weatherIconOne').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
@@ -110,7 +110,7 @@ function fetchWeather() {
 
                     //forecast day 2
                     var dates = data.daily[2].dt;
-                    var forecastDates = moment.unix(dates).format('MM/DD/YYYY');
+                    var forecastDates = new Date(dates*1000).toLocaleDateString('en-US');
                     $('#dateTwo').text(forecastDates);
                     var forecastWeatherIcon = data.daily[2].weather[0].icon;
                     $('#weatherIconTwo').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
@@ -121,7 +121,7 @@ function fetchWeather() {
 
                     //forecast day 3
                     var dates = data.daily[3].dt;
-                    var forecastDates = moment.unix(dates).format('MM/DD/YYYY');
+                    var forecastDates = new Date(dates*1000).toLocaleDateString('en-US');
                     $('#dateThree').text(forecastDates);
                     var forecastWeatherIcon = data.daily[3].weather[0].icon;
                     $('#weatherIconThree').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
@@ -132,7 +132,7 @@ function fetchWeather() {
 
                     //forecast day 4
                     var dates = data.daily[4].dt;
-                    var forecastDates = moment.unix(dates).format('MM/DD/YYYY');
+                    var forecastDates = new Date(dates*1000).toLocaleDateString('en-US');
                     $('#dateFour').text(forecastDates);
                     var forecastWeatherIcon = data.daily[4].weather[0].icon;
                     $('#weatherIconFour').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
@@ -143,7 +143,7 @@ function fetchWeather() {
 
                     //forecast day 5
                     var dates = data.daily[5].dt;
-                    var forecastDates = moment.unix(dates).format('MM/DD/YYYY');
+                    var forecastDates = new Date(dates*1000).toLocaleDateString('en-US');
                     $('#dateFive').text(forecastDates);
                     var forecastWeatherIcon = data.daily[5].weather[0].icon;
                     $('#weatherIconFive').attr('src', 'http://openweathermap.org/img/wn/' + forecastWeatherIcon + '@2x.png');
