@@ -5,6 +5,15 @@ The Best Weather application for any user to decide "Weather or Not" to plan any
 
 An easy to use weather application for the user to search a city name and see the current weather, as well as the forecast for the next five days.
 
+## Technologies Used
+
+* Bootstrap
+* HTML
+* CSS
+* JavaScript
+* jQuery
+* Web API https://openweathermap.org/api
+
 ## Usage
 
 * Upon entering the page, the user will see the title of the page as well as the search bar.
@@ -22,10 +31,16 @@ An easy to use weather application for the user to search a city name and see th
 * Each card displays the date, an icon representation of the forecasted weather, the forecasted temperature, and the forecasted humidity.
 * If one of the previous searches is clicked, the cards will be updated for the selected search.
 
-#Link to deployed page
+## Link to deployed page
 https://loganhild.github.io/weather-or-not/
 
 ![2021-08-11](https://user-images.githubusercontent.com/82903685/128989327-f4b24a43-0960-4797-b13b-7504d644afcd.png)
 
-![Screenshot (54)](https://user-images.githubusercontent.com/82903685/127425808-0aad50d4-aea0-4593-8f60-119202cc5160.png)
+![2021-08-11 (2)](https://user-images.githubusercontent.com/82903685/128989744-a8149fc5-7e7b-4edb-93b5-d76a1223baff.png)
 
+## License
+Licensed under [MIT License}(LICENSE)
+
+## Contact
+
+Logan Hildebrandt- hildebrandtlogan@gmail.com
