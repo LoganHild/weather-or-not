@@ -15,86 +15,82 @@
         <p id="headerP">The best weather application for deciding "Weather or Not" to plan any trip or event.</p>
     </header>
     
-    <aside class="col-2">
+    <aside class="col-4">
         <h2>Search for a City:</h2>
         <!--search bar for cities-->
         <div class="input-group mb-3">
-            <textarea type="text" class="search form-control" placeholder="" aria-label="" aria-describedby="basic-addon1"></textarea>
+            <input type="text" class="search form-control col-5" placeholder="" aria-label="" aria-describedby="basic-addon1"></input>
             <div class="input-group-prepend">
                 <button class="btn btn-outline-secondary searchBtn" type="button"><i class="fas fa-search"></i></button>
             </div>
         </div>
         <!--displays stored searches-->
-        <div>
-            <div id="storedSearches" class="col-5 list-group"></div>
+        <div class="col-11">
+            <div id="storedSearches" class="list-group"></div>
         </div>
         
     </aside>
     <main class = "hidden row">
         <!--displays current conditions for searched city-->
-        <section class = "currentWeather row-2 col-10">
-            <div class="card border-dark mb-3 col-12" style="max-width: 18rem;">
+        <section class = "currentWeather col-12">
+            <div class="card border-dark mb-3 col-12">
                 <div class="name card-header"></div>
-                <div class="forecast card-body text-dark">
+                <div class="card-body text-dark">
                   <h3 class="weather card-title"></h3>
-                  <img class="weatherIcon iconSizing">
-                  <p class="date card-text"></p>
                   <p class="temp card-text"></p>
                   <p class="humidity card-text"></p>
                   <p class="wind card-text"></p>
-                  <p class="uvIndex card-text favorable moderate severe"></p>
+                  <p class="uvIndex card-text">UV Index: <span class="favorable moderate severe"></span></p>
                 </div>
             </div>
         </section>
         <!--displays forecast for 5 days-->
-        <section class ="row col-10">
-            <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-body text-dark">
-                <h3 id="dateOne" class="card-title"></h3>
-                <img id = "weatherIconOne" class="iconSizing">
-                <p id="tempOne" class="card-text"></p>
-                <p id="humidityOne" class="card-text"></p>
+        <section class ="row col-12">
+            <h2>5-day Forecast</h2>
+            <div class="card border-dark mb-3 space" style="max-width: 15rem;">
+                <div class="card-body forecast text-dark">
+                  <h3 id="dateOne" class="card-title"></h3>
+                  <img id = "weatherIconOne" class="iconSizing">
+                  <p id="tempOne" class="card-text"></p>
+                  <p id="humidityOne" class="card-text"></p>
                 </div>
             </div>
-            <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-body text-dark">
-                <h3 id="dateTwo" class="card-title"></h3>
-                <img id = "weatherIconTwo" class="iconSizing">
-                <p id="tempTwo" class="card-text"></p>
-                <p id="humidityTwo" class="card-text"></p>
+            <div class="card border-dark mb-3 space" style="max-width: 15rem;">
+                <div class="card-body forecast text-dark">
+                  <h3 id="dateTwo" class="card-title"></h3>
+                  <img id = "weatherIconTwo" class="iconSizing">
+                  <p id="tempTwo" class="card-text"></p>
+                  <p id="humidityTwo" class="card-text"></p>
                 </div>
             </div>
-            <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-body text-dark">
-                <h3 id="dateThree" class="card-title"></h3>
-                <img id = "weatherIconThree" class="iconSizing">
-                <p id="tempThree" class="card-text"></p>
-                <p id="humidityThree" class="card-text"></p>
+            <div class="card border-dark mb-3 space" style="max-width: 15rem;">
+                <div class="card-body forecast text-dark">
+                  <h3 id="dateThree" class="card-title"></h3>
+                  <img id = "weatherIconThree" class="iconSizing">
+                  <p id="tempThree" class="card-text"></p>
+                  <p id="humidityThree" class="card-text"></p>
                 </div>
             </div>
-            <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-body text-dark">
-                <h3 id="dateFour" class="card-title"></h3>
-                <img id = "weatherIconFour" class="iconSizing">
-                <p id="tempFour" class="card-text"></p>
-                <p id="humidityFour" class="card-text"></p>
+            <div class="card border-dark mb-3 space" style="max-width: 15rem;">
+                <div class="card-body forecast text-dark">
+                  <h3 id="dateFour" class="card-title"></h3>
+                  <img id = "weatherIconFour" class="iconSizing">
+                  <p id="tempFour" class="card-text"></p>
+                  <p id="humidityFour" class="card-text"></p>
                 </div>
             </div>
-            <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-body text-dark">
-                <h3 id="dateFive" class="card-title"></h3>
-                <img id = "weatherIconFive" class="iconSizing">
-                <p id="tempFive" class="card-text"></p>
-                <p id="humidityFive" class="card-text"></p>
+            <div class="card border-dark mb-3 space" style="max-width: 15rem;">
+                <div class="card-body forecast text-dark">
+                  <h3 id="dateFive" class="card-title"></h3>
+                  <img id = "weatherIconFive" class="iconSizing">
+                  <p id="tempFive" class="card-text"></p>
+                  <p id="humidityFive" class="card-text"></p>
                 </div>
             </div>
         </section>
     </main>
-    <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
-    ></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>   
     <script src="script.js"></script>
 </body>
 </html>

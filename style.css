@@ -2,6 +2,7 @@
     --display: flex;
     --column: column;
     --center: center;
+
 }
 header {
     display: var(--display);
@@ -16,6 +17,14 @@ h1 {
 #headerP {
     font-size: 30px;
 }
+aside {
+    display: var(--display);
+    flex-direction: column;
+    align-items: var(--center);
+    float: left;
+    background-color: #caf0f8;
+    margin-top: 10px;
+}
 main {
     display: var(--display);
 }
@@ -23,6 +32,7 @@ main {
     display: var(--display);
     flex-direction: var(--column);
     align-items: var(--center);
+    margin-top: 10px;
 }
 .iconSizing {
     width: 80x;
@@ -49,9 +59,13 @@ main {
     color: white;
     background-color: #0077b6;
 }
-.search {
-    height: 20px;
+.space {
+    margin: 0 5px;
+    background-color: #0077b6;
 }
 .hidden {
     visibility: hidden;
+}
+span {
+    border-radius: 5px;
 }

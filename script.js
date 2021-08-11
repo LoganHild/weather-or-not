@@ -81,7 +81,11 @@ function fetchWeather() {
                     console.log(data);
                     var weatherDesc = data.current.weather[0].main;
                     $('.weather').text('Weather: ' + weatherDesc);
+                    var dateValue = data.current.dt;
+                    var newDate = moment.unix(dateValue).format('MM/DD/YYYY');
+                    $('.name').append(' (' + newDate + ')');
                     var weatherIcon = data.current.weather[0].icon;
+                    $('.name').append('<img class="weatherIcon iconSizing">');
                     $('.weatherIcon').attr('src', 'http://openweathermap.org/img/wn/' + weatherIcon + '@2x.png');
                     $('.weatherIcon').attr('alt', 'Weather Icon');
                     var tempValue = data.current.temp;
@@ -89,12 +93,9 @@ function fetchWeather() {
                     var humidityValue = data.current.humidity;
                     $('.humidity').text('Humidity: ' + humidityValue + '%');
                     var uvValue = data.current.uvi;
-                    $('.uvIndex').text('UV Index: ' + uvValue);
+                    $('span').text(uvValue);
                     var windValue = data.current.wind_speed;
                     $('.wind').text('Wind Speed: ' + windValue + 'mph');
-                    var dateValue = data.current.dt;
-                    var newDate = moment.unix(dateValue).format('MM/DD/YYYY');
-                    $('.date').text(newDate);
 
                     //forecast tomorrow
                     var dates = data.daily[1].dt;
@@ -153,7 +154,7 @@ function fetchWeather() {
                     
                     //changes color of UVI
                     function uvColor() {
-                        uvIndex = $('.uvIndex');
+                        uvIndex = $('span');
                         if (uvValue >=0 && uvValue < 3) {
                             uvIndex.addClass('favorable');
                             uvIndex.removeClass('severe');
@@ -176,5 +177,4 @@ function fetchWeather() {
             uviFetch();
         })
 }
-searchBtn.on("click", fetchWeather)
 init();
