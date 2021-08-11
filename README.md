@@ -22,7 +22,7 @@ An easy to use weather application for the user to search a city name and see th
 * These buttons can then be clicked again for easier searching.
 * Once the search icon has been clicked, cards will appear on the page.
 * the first card will show the city name, the date, an icon representation of the current weather, the temperature, the wind speed, the humidity, and the UV index.
-* The UV indes is color coded based on it's conditions.
+* The UV index is color coded based on it's conditions.
 * Green = favorable (less than 3)
 * Yellow = moderate (between 3 and 6)
 * Red = severe (anything higher than six)
