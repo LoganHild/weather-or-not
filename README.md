@@ -1,4 +1,4 @@
-# weather-or-not
+# Weather or Not
 The Best Weather application for any user to decide "Weather or Not" to plan any trip or event.
 
 ## Description
