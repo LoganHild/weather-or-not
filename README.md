@@ -43,8 +43,8 @@ Licensed under [MIT License}(LICENSE)
 
 ## Contact
 
-[Email](hildebrandtlogan@gmail.com)
+  Email: <hildebrandtlogan@gmail.com>
 
-[Github](https://github.com/LoganHild)
-
-[LinkedIn](https://www.linkedin.com/in/loganahildebrandt/)
+  Github: <https://github.com/LoganHild>
+  
+  LinkedIn: <https://www.linkedin.com/in/loganahildebrandt/>
